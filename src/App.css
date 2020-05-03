@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+/*Fazendo com q o fundo ocupe a tela toda*/
+html, body, #root{
+    min-height: 100%;
+}
+
+body{
+    background: #1b2a49;
+    background-size: cover;
+    /*Deixa a fonte bem mais detalhada*/
+    -webkit-font-smoothing: antialiased !important;
+}
+
+body, input, button{
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+
