@@ -101,7 +101,7 @@ class VideoInput extends Component {
           this.contador+=1;
     
           setTimeout(function(){
-            window.location.reload(1);
+            window.location.reload(false);
          }, 4000); 
          
         }
