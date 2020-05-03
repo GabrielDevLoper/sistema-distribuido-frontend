@@ -3,12 +3,15 @@ import { withRouter, Link } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import { loadModels, getFullFaceDescription } from '../../services/face';
 import api from '../../services/api';
+import { Redirect } from 'react-router'
 import './App.css';
 
 
 const WIDTH = 420;
 const HEIGHT = 420;
 const inputSize = 160;
+
+ 
 
 class VideoInput extends Component {
   
@@ -24,12 +27,15 @@ class VideoInput extends Component {
       facingMode: null,
       img:null,
       found:null,
+      Redirect: false
     };
   }
 
 
   componentWillMount = async () => {
     await loadModels();
+
+    
     
     this.setInputDevice();
   };
@@ -100,8 +106,10 @@ class VideoInput extends Component {
 
           this.contador+=1;
     
-          setTimeout(function(){
-            window.location.reload(false);
+          setTimeout(() => {
+            this.setState({
+              redirect: true
+            })
          }, 4000); 
          
         }
@@ -114,7 +122,11 @@ class VideoInput extends Component {
   render() {
     const { detections, match, facingMode, found } = this.state;
     let videoConstraints = null;
-    
+
+    if(this.state.redirect) {
+      return <Redirect to="/" />
+    }
+
     if (!!facingMode) {
       videoConstraints = {
         width: WIDTH,
