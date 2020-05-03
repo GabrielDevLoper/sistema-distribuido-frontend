@@ -17,7 +17,7 @@ export default function Formulario({ history }){
         data.append('myfile_index', image);
         data.append('name', name);
        
-        const response = await api.post('/indexar', data);
+        const response = await api.post('/users', data);
         const {_id} = response.data;
         console.log(_id);
         
