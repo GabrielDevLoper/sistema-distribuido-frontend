@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import { loadModels, getFullFaceDescription } from '../../services/face';
 import api from '../../services/api';
@@ -216,7 +216,7 @@ class VideoInput extends Component {
             {!!drawBox ? drawBox : null}
           </div>
         </div>
-        <Link to="/form" className="btnCadastrarCliente">Cadastrar Cliente</Link>
+       
       </div>
     );
   }
