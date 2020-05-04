@@ -3,7 +3,9 @@ import { withRouter } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import { loadModels, getFullFaceDescription } from '../../services/face';
 import api from '../../services/api';
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router';
+import swal from 'sweetalert';
+
 import './App.css';
 
 
@@ -188,8 +190,9 @@ class VideoInput extends Component {
           <div>
               <h1 className="found">
               {
-                
-                found ? found : "Posicione o rosto"
+                found ? (
+                  swal("Acesso Liberado", `${found}`, "success")
+                ) : "Posicione o rosto"
               }
             </h1>
           </div>
