@@ -190,9 +190,7 @@ class VideoInput extends Component {
           <div>
               <h1 className="found">
               {
-                found ? (
-                  swal("Acesso Liberado", `${found}`, "success")
-                ) : "Posicione o rosto"
+                found ? swal("Acesso Liberado", `${found}`, 'success') : "Posicione o rosto"
               }
             </h1>
           </div>
