@@ -1,11 +1,12 @@
 import React, {useState, useMemo} from 'react';
 import api from '../../../services/api';
 import camera from '../../../assets/camera.svg';
+import swal from 'sweetalert';
 import './App.css';
 
 export default function Formulario({ history }){
     const [image, setImage] =useState(null);
-    const [name, setName] = useState('');
+    const [names, setNames] = useState('');
     
     const preview = useMemo(() => {
         return image ? URL.createObjectURL(image) : null;
@@ -15,13 +16,11 @@ export default function Formulario({ history }){
         event.preventDefault();
         const data = new FormData();
         data.append('myfile_index', image);
-        data.append('name', name);
+        data.append('name', names);
        
-        const response = await api.post('/users', data);
-        const {_id} = response.data;
-        console.log(_id);
-        
-        alert("Usuario cadastrado com sucesso");
+        await api.post('/users', data);
+       
+        swal("Sucesso", `Usuário Cadastrado com sucesso`, "success");
         history.push('/');
     }
 
@@ -46,8 +45,8 @@ export default function Formulario({ history }){
                 type="text"
                 id="nome"
                 placeholder="Seu Nome"
-                value={name}
-                onChange={event => setName(event.target.value)}
+                value={names}
+                onChange={event => setNames(event.target.value)}
                 />
 
                 <button type="submit" className="btnEnviar">Enviar</button>
