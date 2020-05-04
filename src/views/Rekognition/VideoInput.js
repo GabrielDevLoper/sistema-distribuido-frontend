@@ -7,8 +7,8 @@ import { Redirect } from 'react-router'
 import './App.css';
 
 
-const WIDTH = 420;
-const HEIGHT = 420;
+const WIDTH = 680;
+const HEIGHT = 520;
 const inputSize = 160;
 
  
