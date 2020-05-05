@@ -190,7 +190,7 @@ class VideoInput extends Component {
           <div>
               <h1 className="found">
               {
-                found ? `Acesso Liberado ${found}` : "Posicione o rosto"
+                found ? found : "Posicione o rosto"
               }
             </h1>
           </div>
